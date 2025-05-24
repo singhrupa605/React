@@ -1,2 +1,0 @@
-# React
-Revisiting React Concepts 
