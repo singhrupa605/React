@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is my Paid React Course",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,8 @@
   },
   "homepage": "https://github.com/singhrupa605/React#readme",
   "devDependencies": {
-    "parcel": "^2.15.1"
+    "@parcel/transformer-sass": "^2.15.2",
+    "parcel": "^2.15.2"
   },
   "dependencies": {
     "react": "^19.1.0",
