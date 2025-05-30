@@ -25,4 +25,8 @@
  # React Hooks
  - (Normal JS Utility Functions)
  - useState() - super powerful state variables
- - useEffect() - 
+ - useEffect() - works in side effects of change in dependencies
+
+# Routin
+- Client Side Routing - No network call , only calls made to different routes in same web app.
+- Server Side Routing - makes a network call to Client

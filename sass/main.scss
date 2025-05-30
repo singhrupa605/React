@@ -38,19 +38,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-
   background-color: rgb(255, 255, 255);
   .res-card {
     background-color: $bgcolor;
     margin: 15px 7px;
     width: 200px;
+
     .image-container {
       display: flex;
       align-items: center;
+
       img {
         width: 100%;
         height: 150px;
         object-fit: cover;
+        border-radius: 10px;
       }
     }
   }
@@ -84,33 +86,44 @@ body {
   height: 380px;
 }
 
-
-.login
-{
+.login {
   background-color: antiquewhite;
   padding: 10px 20px;
   margin: 0px 15px;
 }
 
-.nav-items
-{
+.nav-items {
   display: flex;
   align-items: center;
 }
 
-.search-bar
-{
+.search-bar {
   display: flex;
-  input{
+  input {
     padding: 10px;
   }
- .btn
-  {
+  .btn {
     padding: 10px;
   }
 
-  .btn:hover
-  {
+  .btn:hover {
     cursor: pointer;
   }
+}
+
+.dot {
+  background-color: rgb(100, 100, 100);
+  height: 4px;
+  width: 4px;
+  margin: 5px;
+  border-radius: 20px;
+  padding: 0px;
+}
+
+.dot-parent {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  line-height: 20px;
 }

@@ -52,6 +52,7 @@ body .search {
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 10px;
 }
 .res-container .res-card:hover {
   transform: scale(1.03);
@@ -104,4 +105,21 @@ body .search {
 }
 .search-bar .btn:hover {
   cursor: pointer;
+}
+
+.dot {
+  background-color: rgb(100, 100, 100);
+  height: 4px;
+  width: 4px;
+  margin: 5px;
+  border-radius: 20px;
+  padding: 0px;
+}
+
+.dot-parent {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  line-height: 20px;
 }/*# sourceMappingURL=main.css.map */

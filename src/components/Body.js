@@ -8,10 +8,8 @@ export const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
 
   const fetchData = async () => {
-    const dataObj = await fetch(
-      "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=27.87960&lng=78.07620&carousel=true&third_party_vendor=1"
+    const dataObj = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=27.87960&lng=78.07620&carousel=true&third_party_vendor=1"
     );
-
     const d = await dataObj?.json();
     let res =
       d?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
@@ -37,7 +35,7 @@ export const Body = () => {
                 .toLowerCase()
                 .includes(searchText.toLowerCase());
             });
-            setFilteredList(filtered)
+            setFilteredList(filtered);
           }}
         >
           Search
