@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { LOGO_URL } from "../assets/constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [logButton, setLogButton] = useState("Login");
+  let navigate = useNavigate();
 
   return (
     <div className="header">
@@ -29,17 +30,20 @@ const Header = () => {
           </li>
           <li>Food Cart</li>
         </ul>
+        
         <button
           className="login"
           onClick={() => {
             logButton === "Login"
               ? setLogButton("Logout")
               : setLogButton("Login");
+            navigate("/login");
           }}
         >
           {logButton}
         </button>
-      </div>
+        </div>
+      
     </div>
   );
 };

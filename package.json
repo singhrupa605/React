@@ -22,9 +22,11 @@
     "parcel": "^2.15.2"
   },
   "dependencies": {
+    "formik": "^2.4.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.1"
+    "react-router-dom": "^7.6.1",
+    "yup": "^1.6.1"
   },
   "browserslist": [
     "last 2 versions"

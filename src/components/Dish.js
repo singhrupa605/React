@@ -1,7 +1,10 @@
 import ItemCard from "./ItemCard";
 
 const Dish = ({ dish }) => {
+
   const { title, itemCards } = dish;
+  
+  //console.log(dish)
   return (
     <div className="dish-container">
       <div className="top-bar"></div>

@@ -1,7 +1,7 @@
 import { CDN_URL } from "../assets/constants";
 
 const RestaurantCard = ({ resData }) => {
- // console.log(resData);
+  // console.log(resData);
   const { name, cuisines, avgRating, sla, locality } = resData;
   return (
     <div className="res-card">

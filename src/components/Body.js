@@ -18,9 +18,11 @@ export const Body = () => {
     setRestaurants(res);
     setFilteredList(res);
   };
+
   useEffect(() => {
     fetchData();
   }, []);
+  //  console.log(useState([restaurants]))
   return (
     <div className="body">
       <div className="search-bar">
@@ -60,7 +62,7 @@ export const Body = () => {
               filteredList.map((restaurant) => {
                 return (
                   <Link
-                   style={{textDecoration:"none"}}
+                    style={{ textDecoration: "none" }}
                     key={restaurant.info.id}
                     to={"restaurants/" + restaurant.info.id}
                   >

@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { REST_URL } from "../assets/constants";
 import Shimmer from "./Shimmer";
 import Dish from "./Dish";
+import ToggleButton from "./ToggleButton";
 const RestaurantMenu = () => {
   const [menu, setMenu] = useState([]);
   const { resId } = useParams();
   const [resData, setResData] = useState(null);
+  const [filteredMenu, setFilteredMenu] = useState([]);
+
   const fetchMenu = async () => {
     const menuData = await fetch(REST_URL + resId);
     const json = await menuData.json();
@@ -14,8 +17,36 @@ const RestaurantMenu = () => {
     setResData(resInfo);
     const dishes =
       json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    setMenu(dishes.slice(3, dishes.length - 2));
+    const foodList = dishes.slice(3, dishes.length - 2);
+    const allItemCards = getAllItemCards(foodList);
+    setMenu(allItemCards);
+    setFilteredMenu(allItemCards);
   };
+
+  const getAllItemCards = (list) => {
+    const categories = list
+      .map((obj) => obj.card?.card?.categories || null)
+      .filter(Boolean);
+    let combinedArr = categories
+      .map((ar) => {
+        return ar;
+      })
+      .flat();
+
+    const itemCards = list
+      .map((obj) => {
+        let items = obj?.card?.card;
+        if (!items.categories && items.itemCards) {
+          return items;
+        }
+        return null;
+      })
+      .filter(Boolean);
+
+    let result = [...combinedArr, ...itemCards];
+    return result;
+  };
+
   useEffect(() => {
     fetchMenu();
   }, []);
@@ -40,11 +71,16 @@ const RestaurantMenu = () => {
         <h4 className="res-intro">{locality}</h4>
       </div>
       <div>
-        {menu.map((dish) => {
-          let item = dish.card.card;
-          return <Dish key={item.categoryId} dish={item} />;
+        <ToggleButton
+          setData={setFilteredMenu}
+          originalData={menu}
+        />
+        {
+        filteredMenu.map((dish) => {
+          return <Dish key={dish.categoryId} dish={dish} />;
         })}
       </div>
+      {console.log("******************************************")}
     </div>
   );
 };

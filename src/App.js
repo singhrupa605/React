@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import { Body } from "./components/Body";
+import LoginPage from "./components/LoginPage"
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
 import Error from "./components/Error";
@@ -24,6 +25,10 @@ const reactRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Body /> },
       {
+        path: "login",
+        element: <LoginPage />,
+      },
+      {
         path: "about",
         element: <About />,
       },
@@ -33,7 +38,7 @@ const reactRouter = createBrowserRouter([
       },
       {
         path: "restaurants/:resId",
-        element: <RestaurantMenu/>
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <Error />,
