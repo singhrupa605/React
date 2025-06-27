@@ -1,9 +1,4 @@
-import { useState, useEffect } from "react";
-
-const ToggleButton = ({setData, originalData}) => {
-
-
-
+const ToggleButton = ({ setData, originalData }) => {
   const handleNonVegFilter = (e) => {
     const result = originalData
       .map((ob) => {
@@ -15,7 +10,6 @@ const ToggleButton = ({setData, originalData}) => {
           );
         });
         if (filteredItems.length > 0) {
-          //console.log(filteredItems)
           return {
             ...ob,
             itemCards: filteredItems,
@@ -25,12 +19,10 @@ const ToggleButton = ({setData, originalData}) => {
         }
       })
       .filter(Boolean); // Remove nulls
-       console.log(result)
     setData(result);
   };
 
   const handleVegFilter = (e) => {
-      //  console.log(menu)
     const result = originalData
       .map((ob) => {
         let dishes = ob?.itemCards;
@@ -50,17 +42,14 @@ const ToggleButton = ({setData, originalData}) => {
         }
       })
       .filter(Boolean); // Remove nulls
-      console.log(result)
     setData(result);
   };
 
   const handleNonVegToggle = (e) => {
-    //setData(menu);
     handleNonVegFilter(e);
   };
 
   const handleVegToggle = (e) => {
-    //setData(menu);
     handleVegFilter(e);
   };
 
@@ -70,17 +59,27 @@ const ToggleButton = ({setData, originalData}) => {
 
   return (
     <div>
-      <div className="toggle-wrapper">
-        <button id="veg" onClick={handleVegToggle}>
-          Veg
+      <div className="toggle-wrapper flex gap-4 p-4 text-gray-600 font-semibold">
+        <button
+          id="veg"
+          onClick={handleVegToggle}
+          className="transition-transform duration-100 ease-in-out active:scale-105 cursor-pointer text-gray-900 bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          🥗 Veg
         </button>
         <button
           id="non-veg"
           onClick={handleNonVegToggle}
+          className="transition-transform duration-100 active:scale-105 cursor-pointer text-gray-900 bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
-          Non-Veg
+          🍗 Non-Veg
         </button>
-        <button onClick={handleAllButton}>All</button>
+        <button
+          onClick={handleAllButton}
+          className="transition-transform duration-100 active:scale-105 cursor-pointer text-gray-900 bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          All
+        </button>
       </div>
     </div>
   );

@@ -1,38 +1,38 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{getCardWithLabel} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useRestaurants from "../utils/useRestaurants";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../utils/UserContext";
 
 export const Body = () => {
-  const [restaurants, setRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  const [filteredList, setFilteredList] = useState([]);
+  const {
+    restaurants,
+    setRestaurants,
+    searchText,
+    setSearchText,
+    filteredList,
+    setFilteredList,
+  } = useRestaurants();
+  
+  const RestaurantCardPromotion = getCardWithLabel(RestaurantCard)
 
-  const fetchData = async () => {
-    const dataObj = await fetch(
-      "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=27.87960&lng=78.07620&carousel=true&third_party_vendor=1"
-    );
-    const d = await dataObj?.json();
-    let res =
-      d?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    setRestaurants(res);
-    setFilteredList(res);
-  };
+  const {loggedInUser, setUserName} = useContext(UserContext)
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-  //  console.log(useState([restaurants]))
+    
+  
   return (
-    <div className="body">
-      <div className="search-bar">
+    <div className="w-full flex flex-col gap-3 my-4">
+      <div className="w-full">
         <input
           placeholder="search"
+          className="boder border border-gray-400 rounded-sm"
           value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        ></input>
+          onChange={(e) => setSearchText(e.target.value)} />
+       
         <button
-          className="btn"
+          className="bg-gray-200 hover:bg-gray-300 cursor-pointer rounded-sm"
+          type="button"
           onClick={() => {
             const filtered = restaurants.filter((rest) => {
               return rest.info.name
@@ -44,6 +44,7 @@ export const Body = () => {
         >
           Search
         </button>
+        <button onClick={()=>setUserName("Dara Singh")}>{loggedInUser}</button>
       </div>
       {restaurants?.length ? (
         <div className="search">
@@ -57,7 +58,7 @@ export const Body = () => {
           >
             Least Rated Restaurants
           </button>
-          <div className="res-container">
+          <div className="flex flex-wrap gap-10">
             {filteredList.length ? (
               filteredList.map((restaurant) => {
                 return (
@@ -66,19 +67,20 @@ export const Body = () => {
                     key={restaurant.info.id}
                     to={"restaurants/" + restaurant.info.id}
                   >
-                    <RestaurantCard resData={restaurant.info} />
+                    {restaurant.info.promoted?<RestaurantCardPromotion resData={restaurant.info}/>:
+                    <RestaurantCard resData={restaurant.info} />}
                   </Link>
                 );
               })
             ) : (
               <h1>No Restaurants Found</h1>
             )}
-            {/* <RestaurantCard resData={restaurants[0].info}/> */}
           </div>
         </div>
       ) : (
         <Shimmer />
       )}
+      
     </div>
   );
 };

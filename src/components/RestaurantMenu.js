@@ -1,86 +1,66 @@
-import { use, useEffect, useState } from "react";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
-import { REST_URL } from "../assets/constants";
 import Shimmer from "./Shimmer";
-import Dish from "./Dish";
+import Dishes from "./Dishes";
 import ToggleButton from "./ToggleButton";
+import { getDishesWithBar } from "./Dishes";
+import { useState } from "react";
 const RestaurantMenu = () => {
-  const [menu, setMenu] = useState([]);
   const { resId } = useParams();
-  const [resData, setResData] = useState(null);
-  const [filteredMenu, setFilteredMenu] = useState([]);
+  const { menu, filteredMenu, resData, setFilteredMenu } =
+    useRestaurantMenu(resId);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const fetchMenu = async () => {
-    const menuData = await fetch(REST_URL + resId);
-    const json = await menuData.json();
-    const resInfo = json?.data?.cards[2]?.card?.card?.info;
-    setResData(resInfo);
-    const dishes =
-      json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    const foodList = dishes.slice(3, dishes.length - 2);
-    const allItemCards = getAllItemCards(foodList);
-    setMenu(allItemCards);
-    setFilteredMenu(allItemCards);
+  const handleToggle = (index) => {
+    setCurrentIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const getAllItemCards = (list) => {
-    const categories = list
-      .map((obj) => obj.card?.card?.categories || null)
-      .filter(Boolean);
-    let combinedArr = categories
-      .map((ar) => {
-        return ar;
-      })
-      .flat();
-
-    const itemCards = list
-      .map((obj) => {
-        let items = obj?.card?.card;
-        if (!items.categories && items.itemCards) {
-          return items;
-        }
-        return null;
-      })
-      .filter(Boolean);
-
-    let result = [...combinedArr, ...itemCards];
-    return result;
-  };
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
+  const DishesWithBar = getDishesWithBar(Dishes);
   if (!menu.length || !resData) return <Shimmer />;
-
   const { avgRating, name, locality, cuisines, costForTwoMessage, sla } =
     resData;
+
   return (
-    <div className="res-menu">
-      <h1>{name}</h1>
-      <div className="res-data">
-        <div className="sla-parent">
-          <h4 className="res-intro">⭐{avgRating}</h4>
-          <div className="dot"></div>
-          <h4>{costForTwoMessage}</h4>
+    <div className="res-menu flex justify-center shadow">
+      <div className="p-5 flex flex-col gap-4 w-[60%]">
+        <h1 className="text-amber-700 font-bold text-3xl">{name}</h1>
+        <div className="bg-amber-50 shadow-md p-4 flex flex-col gap-y-2.5 rounded-3xl">
+          <div className="sla-parent text-gray-600 font-semibold flex items-center gap-2">
+            <h4 className="res-intr">⭐{avgRating}</h4>
+            <div className="h-[6px] w-[7px] bg-gray-500 rounded-4xl px-[3px]">
+              
+            </div>
+            <h4>{costForTwoMessage}</h4> 
+          </div>
+          <h5 style={{ color: "orange", fontWeight: "bolder" }}>{cuisines}</h5>
+          <h4 className="res-intro  text-gray-600 font-semibold">
+            {sla.minDeliveryTime} - {sla.maxDeliveryTime + 5} minutes
+          </h4>
+          <h4 className="res-intro text-gray-600 font-semibold">{locality}</h4>
         </div>
-        <h5 style={{ color: "orange" }}>{cuisines}</h5>
-        <h4 className="res-intro">
-          {sla.minDeliveryTime} - {sla.maxDeliveryTime + 5} minutes
-        </h4>
-        <h4 className="res-intro">{locality}</h4>
+        <div className="flex flex-col gap-y-2">
+          <ToggleButton setData={setFilteredMenu} originalData={menu} />
+          {filteredMenu.map((dish, index) => {
+            return (
+              <div key={dish.categoryId + index}>
+                {index === 0 ? (
+                  <Dishes
+                    dish={dish}
+                    showItems={index === currentIndex}
+                    onToggle={() => handleToggle(index)}
+                  />
+                ) : (
+                  <DishesWithBar
+                    dish={dish}
+                    showItems={index === currentIndex}
+                    onToggle={() => handleToggle(index)}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div>
-        <ToggleButton
-          setData={setFilteredMenu}
-          originalData={menu}
-        />
-        {
-        filteredMenu.map((dish) => {
-          return <Dish key={dish.categoryId} dish={dish} />;
-        })}
-      </div>
-      {console.log("******************************************")}
     </div>
   );
 };

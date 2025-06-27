@@ -1,37 +1,68 @@
 import React from "react";
 
+const BuggyComponent = () => {
+  throw new Error("This is a test error!"); // Mimicking an error
+  return <div>This will not render</div>;
+};
 class ClassUser extends React.Component {
   constructor(props) {
+    console.log("Constructor is called");
     super(props);
-   // console.log(props)
-    this.state = { counter1: 0 };
-    console.log(`${props.childname} Constructor`);
+    this.state = {
+      userInfo: {
+        name: "",
+        location: "",
+      },
+    };
   }
-  componentDidMount() {
-    console.log(`${this.props.childname} ComponentDidMount`);
+   async componentDidMount() {
+
+     this.timer =  setInterval( async()=>{
+    const data = await fetch("https://api.github.com/users/singhrupa605");
+    const json = await data.json();
+    console.log("componentDidMount is called");
+     this.setState({ userInfo: json });
+    }, 1000)
+
   }
 
+  componentDidUpdate(prevProps, prevStates) {
+    //Older way of componentDidUpdate
+
+    // if(this.state.count1 !==  prevStates)
+    // {
+    //    console.log("This will be called")
+    // }
+
+    // work as another useEffect()
+      // if(this.state.count2 !==  prevStates)
+    // {
+    //    console.log("This will be called")
+    // }
+    console.log("componentDidUpdate is called");
+  }
+  componentWillUnmount() {
+
+    clearInterval(this.timer)
+    console.log("Unmounted");
+  }
+
+  componentDidCatch(error, info) {
+    console.log("Error");
+    // console.error(error, info);
+  }
   render() {
-    console.log(`${this.props.childname} Render`);
-
-    const { name, email, location } = this.props;
-    const { counter1 } = this.state;
+    console.log("Render is called");
+    const { name, location, avatar_url } = this.state.userInfo;
 
     return (
       <div className="user-card">
+        {/* <BuggyComponent /> Mimic Errors */}
+        <div>
+          <img src={avatar_url} width={250} height={250} />
+        </div>
         <h2>Name : {name} </h2>
-        <h3>Email : {email}</h3>
         <h4>Location : {location}</h4>
-        <h1>Counter1 : {counter1}</h1>
-        <button
-          onClick={() => {
-            this.setState({
-              counter1: this.state.counter1 + 1,
-            });
-          }}
-        >
-          Increase Count
-        </button>
       </div>
     );
   }
