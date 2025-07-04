@@ -1,4 +1,4 @@
-import { IMG_URL } from "../assets/constants";
+import { IMG_URL } from "../assets/constants"
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 

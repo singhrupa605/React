@@ -2,7 +2,7 @@ import RestaurantCard ,{getCardWithLabel} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurants from "../utils/useRestaurants";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../utils/UserContext";
 
 export const Body = () => {

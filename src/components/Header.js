@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect, useReducer } from "react";
-import { LOGO_URL } from "../assets/constants";
+import { useState, useContext} from "react";
+import { LOGO_URL } from "../assets/constants"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";

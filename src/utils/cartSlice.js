@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 
 const cartSlice = createSlice({
@@ -15,11 +15,14 @@ const cartSlice = createSlice({
                state.items.pop()
         },
         clearCart : (state, action)=>{
-            state.items.length = 0;
-        }
+              //This is the local state draft (not the original state) that needs to be mutated
+          console.log(current(state))
+          // state.items = []             // correct way to empty
+          console.log(current(state))
+          return {items : []}
       
     }
-})
+  }})
 
 
 export const {addItem, removeItem, clearCart} = cartSlice.actions;
