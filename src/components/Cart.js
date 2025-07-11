@@ -9,7 +9,7 @@ const Cart = () => {
 
   const handleClearCart = () => {
     dispatch(clearCart());
-   // console.log(items);
+    // console.log(items);
   };
 
   return (
@@ -27,20 +27,21 @@ const Cart = () => {
             </button>
           </div>
 
-          <div className="w-4/12  bg-orange-200 p-5 rounded-b-4xl">
+          <div className="w-4/12  bg-orange-200 p-5 rounded-b-4xl" data-testid="cart-items-parent" >
             <ItemsList itemCards={items} showAdd={false} />
           </div>
         </div>
       ) : (
         <div className="relative w-full bg-amber-400">
           <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
-          <h1 className="font-bold text-2xl text-gray-600">There's nothing in your cart! Add items to your cart.</h1>
+            <h1 className="font-bold text-2xl text-gray-600">
+              There's nothing in your cart! Add items to your cart.
+            </h1>
             <img
               src="https://img.freepik.com/free-vector/supermarket-shopping-cart-concept-illustration_114360-22408.jpg"
               alt="Empty Cart"
               width={500}
             />
-            
           </div>
         </div>
       )}

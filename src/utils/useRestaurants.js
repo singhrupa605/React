@@ -9,7 +9,6 @@ const useRestaurants = () => {
   const fetchData = async () => {
     const dataObj = await fetch(RESTAURANTS_API)
     const d = await dataObj?.json();
-    // console.log(d)
     let res = d?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     setRestaurants(res);
     setFilteredList(res);

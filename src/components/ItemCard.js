@@ -18,7 +18,7 @@ const ItemCard = ({ item , showAdd}) => {
    
   
   return (
-    <div className="item-card flex py-3 text-gray-700 items-center">
+    <div className="item-card flex py-3 text-gray-700 items-center"  data-testid="cart-items">
       <div className="item-details w-[85%] flex flex-col">
         <h4 className="font-bold">{info.name}</h4>
         {info.price ? (
