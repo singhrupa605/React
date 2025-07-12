@@ -13,6 +13,7 @@ const Input = (props) => {
         </label>
         <Field
           name={name}
+          data-testid="input"
           {...rest}
           className="border-1 border-gray-300 w-[83%] p-3"
         />

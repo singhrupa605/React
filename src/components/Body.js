@@ -19,8 +19,6 @@ export const Body = () => {
 
   const {loggedInUser, setUserName} = useContext(UserContext)
 
-    
-  
   return (
     <div className="w-full flex flex-col gap-3 my-4">
       <div className="w-full">
@@ -84,3 +82,4 @@ export const Body = () => {
     </div>
   );
 };
+export default Body

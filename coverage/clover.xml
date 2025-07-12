@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1751647658162" clover="3.2.0">
-  <project timestamp="1751647658162" name="All files">
-    <metrics statements="16" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3" elements="23" coveredelements="17" complexity="0" loc="16" ncloc="16" packages="2" files="4" classes="4"/>
+<coverage generated="1751710932012" clover="3.2.0">
+  <project timestamp="1751710932013" name="All files">
+    <metrics statements="52" coveredstatements="42" conditionals="6" coveredconditionals="3" methods="18" coveredmethods="11" elements="76" coveredelements="56" complexity="0" loc="52" ncloc="52" packages="4" files="11" classes="11"/>
+    <package name="assets">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="constants.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\assets\constants.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
     <package name="components">
-      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="20" coveredstatements="19" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="7"/>
       <file name="Contact.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\components\Contact.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+      </file>
+      <file name="Header.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\components\Header.js">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="RestaurantCard.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\components\RestaurantCard.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
       </file>
     </package>
     <package name="formik">
@@ -24,16 +55,48 @@
       <file name="FormikControl.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\formik\FormikControl.js">
         <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="2" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="6" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="8" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
       </file>
       <file name="Input.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\formik\Input.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="17" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+      <file name="UserContext.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\utils\UserContext.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="appStore.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\utils\appStore.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="cartSlice.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\utils\cartSlice.js">
+        <metrics statements="7" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
+      <file name="useOnlineStatus.js" path="C:\Users\Rupa Singh\Music\Interview_Prep - Copy\React\src\utils\useOnlineStatus.js">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
       </file>
     </package>
   </project>

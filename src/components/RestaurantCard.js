@@ -1,7 +1,7 @@
 import { CDN_URL } from "../assets/constants";
 
 const RestaurantCard = ({ resData }) => {
-  // console.log(resData);
+   //console.log(resData);
   const { name, avgRating, sla, locality } = resData;
   return (
     <div className="bg-amber-50 rounded-b-sm drop-shadow-sm">
@@ -27,8 +27,7 @@ const RestaurantCard = ({ resData }) => {
   );
 };
 
-export const getCardWithLabel = (RestaurantCard) =>
-   {
+export const getCardWithLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div className="relative">
