@@ -150,6 +150,9 @@ const config = {
 
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
+  moduleNameMapper: {
+    '^src/(.*)$': '<rootDir>/src/$1',
+  },
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},

@@ -15,6 +15,7 @@ const useRestaurantMenu = (resId) => {
     const dishes =
       json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
     // console.log( json?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+    
     const foodList = dishes.slice(3, dishes.length - 2);
     const allItemCards = getAllItemCards(foodList);
     setMenu(allItemCards);
@@ -42,15 +43,20 @@ const useRestaurantMenu = (resId) => {
         return null;
       })
       .filter(Boolean);
-     let result = [...combinedArr, ...itemCards];
-     return result;
+    let result = [...combinedArr, ...itemCards];
+    return result;
   };
 
   useEffect(() => {
     fetchMenu();
   }, []);
 
-  return { menu: menu, filteredMenu: filteredMenu, resData: resData, setFilteredMenu : setFilteredMenu };
+  return {
+    menu: menu,
+    filteredMenu: filteredMenu,
+    resData: resData,
+    setFilteredMenu: setFilteredMenu,
+  };
 };
 
 export default useRestaurantMenu;

@@ -14,7 +14,7 @@ const Dishes = ({ dish, showItems, onToggle}) => {
         {itemCards?.length ? (
           <div>
             <div className="flex justify-between items-center bg-amber-50 p-4 shadow-sm">
-              <h1 className="text-md font-bold uppercase tracking-wider">
+              <h1 className="text-md font-bold tracking-wider text-gray-600">
                 {title}
               </h1>
               <button className="shadow transition-transform duration-100 ease-in-out transform hover:scale-110 active:scale-95 hover:bg-orange-200 hover:border-2 border-gray-300 cursor-pointer p-2" onClick={handleToggle}>

@@ -1,9 +1,7 @@
-
 import ItemCard from "./ItemCard";
 import { getItemCardWithBar } from "./ItemCard";
 const ItemsList = ({ itemCards, showAdd }) => {
   const ItemCardWithBar = getItemCardWithBar(ItemCard);
-
 
   return (
     <div>
@@ -12,7 +10,10 @@ const ItemsList = ({ itemCards, showAdd }) => {
         return (
           <div key={info.id + index}>
             {index >= itemCards.length - 1 ? (
-              <ItemCard item={item} showAdd={showAdd} />
+              <ItemCard
+                item={item}
+                showAdd={showAdd}
+              />
             ) : (
               <ItemCardWithBar item={item} showAdd={showAdd} />
             )}

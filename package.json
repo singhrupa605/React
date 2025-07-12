@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,8 @@
     "jest": "^30.0.3",
     "jest-environment-jsdom": "^30.0.4",
     "parcel": "^2.15.2",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "whatwg-fetch": "^3.6.20"
   },
   "dependencies": {
     "@babel/preset-react": "^7.27.1",
@@ -41,7 +43,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.6.1",
+    "react-router": "^6.23.1",
+    "react-router-dom": "^6.23.1",
     "yup": "^1.6.1"
   },
   "browserslist": [

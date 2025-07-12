@@ -63,20 +63,20 @@ const ToggleButton = ({ setData, originalData }) => {
         <button
           id="veg"
           onClick={handleVegToggle}
-          className="transition-transform duration-100 ease-in-out active:scale-105 cursor-pointer text-gray-900 bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="text-gray-700 transition-transform duration-100 ease-in-out active:scale-105 cursor-pointer bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           🥗 Veg
         </button>
         <button
           id="non-veg"
           onClick={handleNonVegToggle}
-          className="transition-transform duration-100 active:scale-105 cursor-pointer text-gray-900 bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="text-gray-700 transition-transform duration-100 active:scale-105 cursor-pointer bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           🍗 Non-Veg
         </button>
         <button
           onClick={handleAllButton}
-          className="transition-transform duration-100 active:scale-105 cursor-pointer text-gray-900 bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="text-gray-700 transition-transform duration-100 active:scale-105 cursor-pointer bg-gradient-to-r from-yellow-20 to-orange-200 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           All
         </button>

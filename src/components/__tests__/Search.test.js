@@ -1,10 +1,4 @@
-const {
-  render,
-  screen,
-  act,
-  fireEvent,
-  waitFor,
-} = require("@testing-library/react");
+const { render, screen, act, fireEvent } = require("@testing-library/react");
 import { Body } from "../Body";
 import "@testing-library/jest-dom";
 import MOCK_RESLIST from "../mocks/resListMockData.json";

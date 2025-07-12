@@ -1,0 +1,18 @@
+{
+  "typeAcquisition": {
+    "include": ["jest"]
+  },
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "checkJs": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+  },
+  "include": ["src", "tests"],
+  "paths": {
+    "src/*": ["src/*"]
+  },
+  
+}

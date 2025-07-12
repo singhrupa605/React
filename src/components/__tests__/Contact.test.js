@@ -9,6 +9,7 @@ test("Should render Contact Us component", () => {
   const heading = screen.getByRole("heading");
   expect(heading).toBeInTheDocument();
 });
+
 test("Should load Submit Button", () => {
   render(<Contact />);
   const button = screen.getByRole("button");
